@@ -77,6 +77,7 @@ Hiring managers spend 6-10 seconds on initial scan. Your opening line must:
 4. **Numbers everywhere**: Quantify time, money, percentages, scale
 5. **One idea per paragraph**: Scannable content wins
 6. **End with impact**: Every section should leave them thinking about results
+7. **No em dashes**: Never use — (em dash). Use periods, commas, or colons instead
 
 ## Your Process
 
