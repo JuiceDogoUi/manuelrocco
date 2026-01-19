@@ -76,9 +76,9 @@ export const caseStudies: CaseStudy[] = [
     title: "DataCamp Paywall: Killing a Feature to Boost Conversions",
     description:
       "I eliminated half of DataCamp's paywall flow and increased paywall views by 50%. Sometimes the best design is removing something.",
-    role: "Lead Product Designer",
+    role: "Product Manager",
     year: 2025,
-    category: "designed",
+    category: "led",
     featured: true,
     sections: [
       {

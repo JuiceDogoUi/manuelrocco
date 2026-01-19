@@ -76,7 +76,7 @@ function CaseStudyItem({ caseStudy }: { caseStudy: CaseStudy }) {
         </p>
         <div className="mt-6">
           <Button size="lg">
-            Read Case Study
+            Read
           </Button>
         </div>
       </div>
