@@ -12,15 +12,28 @@ export const categoryLabels: Record<CaseStudyCategory, string> = {
 };
 
 export const categoryDescriptions: Record<CaseStudyCategory, string> = {
-  built: "Products I strategized, built and shipped",
-  led: "Strategy and leadership work",
-  designed: "Redesigns that moved metrics",
+  built: "Products I shipped end-to-end",
+  led: "Teams and systems I drove",
+  designed: "Solutions that moved metrics",
 };
+
+export interface CaseStudyCallout {
+  label?: string;
+  content: string;
+  variant?: "insight" | "lesson";
+}
 
 export interface CaseStudySection {
   id: string;
   title: string;
   content: string;
+  pullQuote?: string;
+  callout?: CaseStudyCallout;
+}
+
+export interface CaseStudyMetric {
+  value: string;
+  label: string;
 }
 
 export interface CaseStudy {
@@ -31,8 +44,12 @@ export interface CaseStudy {
   year: number;
   category: CaseStudyCategory;
   image?: string;
+  imageDark?: string;
+  imageLight?: string;
+  imageCaption?: string;
   featured?: boolean;
   sections: CaseStudySection[];
+  metrics?: CaseStudyMetric[];
 }
 
 export interface Value {
