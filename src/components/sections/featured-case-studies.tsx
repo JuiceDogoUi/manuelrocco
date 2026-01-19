@@ -80,7 +80,7 @@ export function FeaturedCaseStudies() {
   const featuredCaseStudies = getFeaturedCaseStudies(3);
 
   return (
-    <section className="border-t">
+    <section id="case-studies" className="border-t">
       <div className="container mx-auto max-w-5xl px-4 py-24">
         <h2 className="text-3xl font-bold tracking-tight">Case Studies</h2>
         <div className="mt-12 grid gap-20 lg:gap-24">
