@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
         </h1>
 
         <p className="mt-6 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl">
-          Here's what I've been working on and how it came together.
+          Here&apos;s what I&apos;ve been working on and how it came together.
         </p>
       </header>
 

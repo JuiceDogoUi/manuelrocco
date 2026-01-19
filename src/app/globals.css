@@ -123,3 +123,106 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Morphing Gradient Blobs - Hero Background Animation */
+
+/* Primary blob morph - organic shape shifting */
+@keyframes blob-morph-1 {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+    transform: rotate(180deg) scale(0.95);
+  }
+  75% {
+    border-radius: 40% 30% 60% 50% / 60% 50% 40% 30%;
+    transform: rotate(270deg) scale(1.02);
+  }
+}
+
+/* Secondary blob with different timing */
+@keyframes blob-morph-2 {
+  0%, 100% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 50% 50%;
+    transform: rotate(0deg) scale(1) translate(0, 0);
+  }
+  33% {
+    border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+    transform: rotate(120deg) scale(1.1) translate(20px, -20px);
+  }
+  66% {
+    border-radius: 60% 40% 50% 50% / 50% 50% 60% 40%;
+    transform: rotate(240deg) scale(0.9) translate(-20px, 20px);
+  }
+}
+
+/* Tertiary blob - slower, larger movement */
+@keyframes blob-morph-3 {
+  0%, 100% {
+    border-radius: 70% 30% 50% 50% / 30% 50% 50% 70%;
+    transform: rotate(0deg) translate(0, 0);
+  }
+  50% {
+    border-radius: 30% 70% 50% 50% / 50% 70% 30% 50%;
+    transform: rotate(180deg) translate(30px, -30px);
+  }
+}
+
+/* Color shift animation */
+@keyframes color-shift {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+/* Floating movement */
+@keyframes float-diagonal {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30px, -20px);
+  }
+  50% {
+    transform: translate(10px, 20px);
+  }
+  75% {
+    transform: translate(-20px, 10px);
+  }
+}
+
+/* Blob animation classes */
+.blob-1 {
+  animation:
+    blob-morph-1 20s ease-in-out infinite,
+    color-shift 15s ease-in-out infinite;
+}
+
+.blob-2 {
+  animation:
+    blob-morph-2 25s ease-in-out infinite,
+    float-diagonal 20s ease-in-out infinite;
+}
+
+.blob-3 {
+  animation:
+    blob-morph-3 30s ease-in-out infinite;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .blob-1,
+  .blob-2,
+  .blob-3 {
+    animation: none !important;
+  }
+}
