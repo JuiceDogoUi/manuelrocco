@@ -10,7 +10,7 @@ export function StatHighlight({ metrics }: StatHighlightProps) {
       {metrics.map((metric, index) => (
         <div
           key={index}
-          className="rounded-2xl bg-primary/5 dark:bg-primary/10 p-6 text-center transition-colors"
+          className="rounded-2xl bg-primary/5 dark:bg-primary/10 border border-primary/10 dark:border-primary/20 p-6 text-center transition-colors"
         >
           <div className="text-3xl md:text-4xl font-bold text-primary">
             {metric.value}

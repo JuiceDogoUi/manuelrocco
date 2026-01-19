@@ -12,10 +12,10 @@ export function Hero() {
           Currently leading design for DataCamp&apos;s millions of learners. Co-founder of invoo.es, where I own product end-to-end. Most teams lose weeks in handoffs. I compress that gap by bringing PM thinking, design leadership, and code execution to the work.
         </p>
         <div className="flex items-center gap-4 pt-4">
-          <Button asChild>
+          <Button size="lg" asChild>
             <Link href="/case-studies">See Case Studies</Link>
           </Button>
-          <Button variant="outline" asChild>
+          <Button size="lg" variant="outline" asChild>
             <Link href="/about-me">About Me</Link>
           </Button>
         </div>

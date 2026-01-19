@@ -15,10 +15,9 @@ export function CategoryFilter({
   onCategoryChange,
 }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-3">
       <Button
         variant={activeCategory === null ? "default" : "outline"}
-        size="sm"
         onClick={() => onCategoryChange(null)}
       >
         All
@@ -27,7 +26,6 @@ export function CategoryFilter({
         <Button
           key={category}
           variant={activeCategory === category ? "default" : "outline"}
-          size="sm"
           onClick={() => onCategoryChange(category)}
           title={categoryDescriptions[category]}
         >
