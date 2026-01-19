@@ -218,6 +218,104 @@
     blob-morph-3 18s ease-in-out infinite;
 }
 
+/* Preloader styles */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+
+.preloader-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.preloader-logo {
+  display: flex;
+  align-items: baseline;
+}
+
+.preloader-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: preloader-fade-in 0.5s ease-out forwards;
+}
+
+.preloader-dot {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  opacity: 0;
+  transform: scale(0);
+  animation: preloader-dot-pop 0.4s ease-out 0.3s forwards;
+}
+
+@keyframes preloader-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes preloader-dot-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Respect reduced motion for preloader */
+@media (prefers-reduced-motion: reduce) {
+  .preloader-name,
+  .preloader-dot {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Blob background fade-in on page load */
+@keyframes blob-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.blob-fade-in {
+  animation: blob-fade-in 1.2s ease-out forwards;
+}
+
 /* Hero entrance animations */
 @keyframes fade-up {
   from {
@@ -267,6 +365,11 @@
     animation: none !important;
   }
 
+  .blob-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
   .hero-fade-up,
   .hero-fade-up-delay-1,
   .hero-fade-up-delay-2 {
@@ -279,3 +382,54 @@
     width: 100% !important;
   }
 }
+
+/* Scroll-triggered hero zoom-out effect */
+@keyframes hero-zoom-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.85);
+    opacity: 0.3;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .parallax-hero-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    transform-origin: center top;
+    will-change: transform, opacity;
+    animation: hero-zoom-out linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 600px;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-hero-container {
+      animation-range: 0 400px;
+    }
+  }
+}
+
+/* Fallback for unsupported browsers */
+@supports not (animation-timeline: scroll()) {
+  .parallax-hero-container {
+    position: relative;
+  }
+}
+
+/* Reduced motion: disable parallax */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-hero-container {
+    position: relative !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

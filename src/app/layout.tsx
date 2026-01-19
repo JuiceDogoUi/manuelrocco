@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Preloader } from "@/components/shared/preloader";
 import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
@@ -57,6 +58,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Preloader />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

@@ -4,6 +4,7 @@ import { getFeaturedCaseStudies } from "@/data/case-studies";
 import { categoryLabels, CaseStudy } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ParallaxCardWrapper } from "@/components/shared/parallax-card-wrapper";
 
 function CaseStudyItem({ caseStudy }: { caseStudy: CaseStudy }) {
   const hasImage =
@@ -80,15 +81,22 @@ export function FeaturedCaseStudies() {
   const featuredCaseStudies = getFeaturedCaseStudies(3);
 
   return (
-    <section id="case-studies" className="border-t">
-      <div className="container mx-auto max-w-5xl px-4 py-24">
-        <h2 className="text-3xl font-bold tracking-tight">Case Studies</h2>
-        <div className="mt-12 grid gap-20 lg:gap-24">
-          {featuredCaseStudies.map((caseStudy) => (
-            <CaseStudyItem key={caseStudy.slug} caseStudy={caseStudy} />
-          ))}
-        </div>
+    <section id="case-studies" className="border-t bg-background pb-24">
+      {/* Header in container */}
+      <div className="container mx-auto max-w-5xl px-4 pt-24 pb-12">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Case Studies</h2>
       </div>
+
+      {/* Case studies with parallax - each handles its own container when fixed */}
+      {featuredCaseStudies.map((caseStudy, index) => (
+        <ParallaxCardWrapper
+          key={caseStudy.slug}
+          index={index}
+          isLast={index === featuredCaseStudies.length - 1}
+        >
+          <CaseStudyItem caseStudy={caseStudy} />
+        </ParallaxCardWrapper>
+      ))}
     </section>
   );
 }
