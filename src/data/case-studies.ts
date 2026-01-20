@@ -198,97 +198,72 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "datacamp-mobile-home",
-    title: "DataCamp Mobile Home: Redesigning for Engagement",
+    title: "DataCamp Mobile Home: From Content Overload to 7% Course Lift",
     description:
-      "Redesigned the mobile home screen to boost learning activity by 7% and reduce bounce by 10% across millions of users.",
+      "I bet that users think in actions, not courses. Restructured the entire home screen around learn/practice/review instead of course types. Bounce rate dropped 10%, course engagement rose 7%.",
     role: "Lead Product Designer",
     year: 2025,
     category: "designed",
     featured: false,
-    sections: [
-      {
-        id: "hook",
-        title: "The Hook",
-        content:
-          "I redesigned DataCamp's mobile home screen and increased learning activity by 7% while reducing bounce rate by 10%. For a platform with millions of users, those percentages translate to thousands more people actually learning every day.",
-      },
-      {
-        id: "puzzle",
-        title: "The Puzzle",
-        content:
-          "The mobile home screen was underperforming. 9.3% of users landed there and left without taking any action. The median time on screen was just 9 seconds. Users were not finding what they needed to continue learning. The screen had evolved organically, accumulating features without a clear hierarchy. We needed to understand what users wanted when they opened the app.",
-      },
-      {
-        id: "decision",
-        title: "The Decision",
-        content:
-          "I focused on resumption over discovery. Data showed most returning users wanted to continue where they left off, not browse new content. I prioritized the continue learning flow and deprioritized discovery features that were adding cognitive load. The trade-off: new users might have a slightly less guided experience, but returning users would have a faster path to value.",
-      },
-      {
-        id: "changes",
-        title: "What Changed",
-        content:
-          "Elevated the continue learning section to the top of the screen. Simplified the visual hierarchy to reduce decision fatigue. Removed redundant navigation elements that duplicated tab bar functionality. Added progress indicators that celebrate momentum. Streamlined the path from home screen to active learning session.",
-      },
-      {
-        id: "result",
-        title: "The Result",
-        content:
-          "XP gained with courses increased by 7%. Users leaving without action dropped from 9.3% to 8.4%, a 10% improvement. Median time on home screen decreased from 9 to 8 seconds, meaning users found what they needed faster. The redesign became the foundation for subsequent mobile improvements.",
-      },
-      {
-        id: "reflection",
-        title: "What I'd Do Differently",
-        content:
-          "I would segment the analysis earlier by user type. New users and power users have very different needs on the home screen. A more personalized approach from day one could have driven even better results for both segments.",
-      },
+    imageDark: "/images/case-studies/datacamp-home-cover-dark.webp",
+    imageLight: "/images/case-studies/datacamp-home-cover-light.webp",
+    metrics: [
+      { value: "7%", label: "Course engagement lift" },
+      { value: "10%", label: "Bounce reduction" },
+      { value: "8s", label: "Time to action" },
     ],
-  },
-  {
-    slug: "sei-novus-dashboard",
-    title: "SEI Novus Dashboard: From 5% to 70% Interaction",
-    description:
-      "Transformed an analytics dashboard that nobody used into one that 70% of users actively engage with. A 14x improvement in interaction rate.",
-    role: "Lead Product Designer",
-    year: 2023,
-    category: "designed",
-    featured: true,
     sections: [
       {
         id: "hook",
         title: "The Hook",
         content:
-          "I took an analytics dashboard with a 5% interaction rate and redesigned it to achieve 70% interaction. That is a 14x improvement. The same data, presented differently, went from ignored to indispensable.",
+          "9.3% of users opened the home screen and did nothing. Not because they were lost. Because the screen organized content by courses, and users think in actions. I restructured the entire screen around three verbs: learn, practice, review. That mental model shift drove every design decision and lifted course engagement by 7%.",
       },
       {
         id: "puzzle",
         title: "The Puzzle",
         content:
-          "The dashboard existed, but nobody used it. Only 5% of users ever clicked on anything beyond the default view. Support tickets piled up with questions the dashboard was supposed to answer. The problem was not missing data. The team had designed the interface around database structure, not user workflows. Users could not find insights because the information architecture matched engineering logic, not how they thought about their work.",
+          "The home screen organized content by course type. Python courses here. SQL courses there. But users do not open an app thinking \"I want to navigate my course catalog.\" They think: I have 10 minutes, what can I do right now? Each course card presented multiple actions without clear hierarchy. Users faced decision fatigue at the card level, unsure which action matched their intent. 9.3% bounced without doing anything. For a subscription app, every bounced session is a missed opportunity for learning momentum, the behavior that drives long-term retention.",
+        callout: {
+          label: "The Real Problem",
+          content:
+            "Users think in actions: learn, practice, review. The screen was organized by courses. Fundamental mismatch.",
+          variant: "insight",
+        },
       },
       {
         id: "decision",
         title: "The Decision",
         content:
-          "I chose to redesign around workflows, not data tables. Instead of showing all available metrics, I identified the three questions users needed to answer and built views around those. The trade-off: power users lost some flexibility in custom queries. But the 95% of users who never engaged at all gained a tool they could use.",
+          "I proposed restructuring the entire screen around actions instead of courses. No research study. No focus groups. This was a design bet based on years of watching users struggle and studying competitors like Duolingo, Mimo, and Brilliant. Stakeholders probed deeper. What evidence supported abandoning course-focused navigation? I had observation and intuition, not data. I built the case by walking through user jobs: resume learning quickly, practice recent material, stay motivated through streaks. Every job mapped to an action, not a course. The data would prove me right or wrong.",
+        pullQuote:
+          "Every user job mapped to an action, not a course. That was the argument that won.",
       },
       {
-        id: "changes",
-        title: "What Changed",
+        id: "approach",
+        title: "The Approach",
         content:
-          "Rebuilt the dashboard around three core user workflows identified through usability testing. Replaced dense data tables with visual summaries and progressive disclosure. Added contextual guidance that explained what metrics meant and why they mattered. Created default views that answered the most common questions immediately. Ran usability tests with 8 analysts to validate the new structure before development.",
+          "I restructured the screen into three clear zones: learn, practice, review. The continue learning carousel moved to the top with modern animations and reduced clutter. I created two distinct entry points for practice and reviews, each opening bottom modals with focused content. The header got thinner and cleaner, showing XP and streaks prominently to reinforce motivation. The daily practice banner moved higher on the screen because position equals conversion. I applied DataCamp's new mobile design system throughout and added shimmer loaders for every card type. One designer, one PM, one clear direction.",
+        imageDark: "/images/case-studies/datacamp-home-old-dark.webp",
+        imageLight: "/images/case-studies/datacamp-home-old-light.webp",
       },
       {
         id: "result",
         title: "The Result",
         content:
-          "Interaction rate jumped from 5% to 70%. Analytics-related support tickets dropped by 40%. The redesign shipped in 6 weeks. Users who previously ignored the dashboard now check it daily. The workflow-first approach became a template for subsequent internal tools.",
+          "Bounce rate dropped from 9.3% to 8.4%, a 10% improvement. Time on screen fell from 9 to 8 seconds, meaning users found their path faster. Course XP rose 7%. But then the overall XP metric dipped 2.4% and stakeholders got nervous.\n\nI dug into the data. The dip was not the design. It was the practice modal implementation. Practice was not supported for all courses, so some users tapped practice and saw empty states. That logic got rolled back. The design direction held. Sometimes defending your work means investigating the implementation, not second-guessing the strategy. The action-based structure shipped to production and became the foundation for all subsequent home screen iterations.",
+        callout: {
+          label: "Diagnostic Win",
+          content:
+            "The 2.4% XP dip was not the design. It was empty practice modals for unsupported courses. Implementation gap, not design failure.",
+          variant: "lesson",
+        },
       },
       {
         id: "reflection",
         title: "What I'd Do Differently",
         content:
-          "I would involve engineering earlier in the workflow mapping. Some of my initial designs required data joins that were expensive to compute. Earlier technical input would have avoided a mid-project pivot on one of the three views.",
+          "I would add a practice content coverage check before shipping. The design assumed practice would work for every course. It did not. A simple availability check in the modal logic would have prevented the XP dip and the stakeholder concern. The fix was easy once we found it, but I should have anticipated the edge case.\n\nMore broadly, this project reinforced that design bets without research can work when you have built the observational intuition first. I had watched users struggle for months before proposing this. The bet was not blind. It was informed by pattern recognition that formal studies sometimes miss.",
       },
     ],
   },
