@@ -4,8 +4,13 @@ import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  size?: "sm" | "default";
+}
+
+export function ThemeToggle({ size = "default" }: ThemeToggleProps) {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -13,10 +18,15 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
+  const iconClass = cn(
+    "transition-all duration-300",
+    size === "sm" ? "h-4 w-4" : "h-5 w-5"
+  );
+
   if (!mounted) {
     return (
       <Button variant="ghost" size="icon" disabled>
-        <Sun className="h-5 w-5" />
+        <Sun className={iconClass} />
       </Button>
     );
   }
@@ -29,9 +39,9 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       {resolvedTheme === "dark" ? (
-        <Sun className="h-5 w-5" />
+        <Sun className={iconClass} />
       ) : (
-        <Moon className="h-5 w-5" />
+        <Moon className={iconClass} />
       )}
     </Button>
   );

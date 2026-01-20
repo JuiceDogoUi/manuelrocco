@@ -4,7 +4,7 @@ import { Starfield } from "@/components/shared/starfield";
 
 export function Hero() {
   return (
-    <section className="relative h-[calc(80vh-4rem)] mt-16 flex items-center justify-center">
+    <section className="relative h-[calc(85vh-5rem)] mt-20 flex items-center justify-center">
       {/* Morphing Gradient Blobs Background */}
       <div
         className="pointer-events-none absolute -top-20 -left-20 -right-20 -bottom-40 blob-fade-in"
