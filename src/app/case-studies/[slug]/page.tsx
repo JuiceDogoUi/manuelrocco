@@ -6,7 +6,7 @@ import {
   getCaseStudyBySlug,
   getOtherCaseStudies,
 } from "@/data/case-studies";
-import { categoryLabels, CaseStudySection } from "@/types";
+import { categoryLabels, CaseStudySection, CaseStudyMetric } from "@/types";
 import { CaseStudyNav } from "@/components/shared/case-study-nav";
 import { MoreCaseStudies } from "@/components/shared/more-case-studies";
 import { StatHighlight } from "@/components/shared/stat-highlight";
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function SectionContent({ section }: { section: CaseStudySection }) {
+function SectionContent({ section, metrics }: { section: CaseStudySection; metrics?: CaseStudyMetric[] }) {
   const isResult = section.id === "result";
 
   return (
@@ -52,18 +52,46 @@ function SectionContent({ section }: { section: CaseStudySection }) {
         isResult && "py-8 -mx-4 px-4 md:-mx-8 md:px-8"
       )}
     >
-      {/* Result section background glow */}
-      {isResult && (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent rounded-3xl -z-10" />
-      )}
-
       <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
         {section.title}
       </h2>
 
-      <div className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-prose">
-        <p>{section.content}</p>
+      <div className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-prose space-y-4">
+        {section.content.split("\n\n").map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
       </div>
+
+      {/* Section image after content */}
+      {(section.imageDark || section.imageLight) && (
+        <figure className="mt-8">
+          <div className="overflow-hidden rounded-2xl ring-1 ring-border/50">
+            {section.imageDark && section.imageLight ? (
+              <>
+                <Image
+                  src={section.imageLight}
+                  alt={section.title}
+                  width={1200}
+                  height={630}
+                  className="w-full object-cover dark:hidden"
+                />
+                <Image
+                  src={section.imageDark}
+                  alt={section.title}
+                  width={1200}
+                  height={630}
+                  className="hidden w-full object-cover dark:block"
+                />
+              </>
+            ) : null}
+          </div>
+          {section.imageCaption && (
+            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+              {section.imageCaption}
+            </figcaption>
+          )}
+        </figure>
+      )}
 
       {/* Pull quote after content */}
       {section.pullQuote && <PullQuote>{section.pullQuote}</PullQuote>}
@@ -73,6 +101,11 @@ function SectionContent({ section }: { section: CaseStudySection }) {
         <Callout label={section.callout.label} variant={section.callout.variant}>
           {section.callout.content}
         </Callout>
+      )}
+
+      {/* Metrics inside result section */}
+      {isResult && metrics && metrics.length > 0 && (
+        <StatHighlight metrics={metrics} />
       )}
     </section>
   );
@@ -91,10 +124,7 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <div className="container mx-auto max-w-5xl px-4 py-24">
       {/* Hero */}
-      <header className="relative mb-20">
-        {/* Subtle gradient backdrop */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 via-transparent to-transparent rounded-3xl" />
-
+      <header className="mb-20">
         <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
           <Badge variant="secondary" className="text-xs uppercase tracking-wider">
             {categoryLabels[caseStudy.category]}
@@ -167,20 +197,13 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="space-y-20 lg:space-y-24">
           {caseStudy.sections.map((section, index) => (
             <div key={section.id}>
-              <SectionContent section={section} />
-
-              {/* Show metrics after "The Result" section */}
-              {section.id === "result" &&
-                caseStudy.metrics &&
-                caseStudy.metrics.length > 0 && (
-                  <StatHighlight metrics={caseStudy.metrics} />
-                )}
+              <SectionContent section={section} metrics={section.id === "result" ? caseStudy.metrics : undefined} />
 
               {/* Gradient divider between major sections */}
               {index > 0 &&
                 index < caseStudy.sections.length - 1 &&
                 index % 2 === 1 && (
-                  <div className="mt-20 lg:mt-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <div className="mt-20 lg:mt-24 h-px bg-gradient-to-r from-transparent via-border dark:via-muted-foreground/30 to-transparent" />
                 )}
             </div>
           ))}

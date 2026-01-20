@@ -37,7 +37,7 @@ export function MoreCaseStudies({ caseStudies }: MoreCaseStudiesProps) {
                     {categoryLabels[caseStudy.category]}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl">
                   {caseStudy.title}
                 </CardTitle>
                 <CardDescription>{caseStudy.description}</CardDescription>

@@ -68,7 +68,7 @@ function CaseStudyItem({ caseStudy }: { caseStudy: CaseStudy }) {
           <span className="text-border">|</span>
           <span>{caseStudy.year}</span>
         </div>
-        <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight group-hover:text-primary transition-colors">
+        <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
           {caseStudy.title}
         </h3>
         <p className="mt-3 text-lg text-muted-foreground leading-relaxed">

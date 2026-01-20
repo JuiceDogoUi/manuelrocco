@@ -6,7 +6,7 @@ interface StatHighlightProps {
 
 export function StatHighlight({ metrics }: StatHighlightProps) {
   return (
-    <div className="my-12 grid gap-4 sm:grid-cols-3">
+    <div className="mt-3 mb-12 grid gap-4 sm:grid-cols-3">
       {metrics.map((metric, index) => (
         <div
           key={index}

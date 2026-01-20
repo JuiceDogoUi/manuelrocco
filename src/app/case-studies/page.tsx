@@ -11,10 +11,7 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <div className="container mx-auto max-w-5xl px-4 py-24">
-      {/* Hero with gradient backdrop */}
-      <header className="relative mb-16">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 via-transparent to-transparent rounded-3xl" />
-
+      <header className="mb-16">
         <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           Case Studies
         </h1>

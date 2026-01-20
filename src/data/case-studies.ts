@@ -2,6 +2,83 @@ import { CaseStudy, CaseStudyCategory } from "@/types";
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "datacamp-paywall",
+    title: "DataCamp Paywall: 50% Conversion Lift From Deleting a Feature",
+    description:
+      "65% of users bounced on a screen before ever seeing the paywall. I deleted it entirely and lifted conversions by 50%.",
+    role: "Product Manager & Lead Product Designer",
+    year: 2025,
+    category: "led",
+    featured: true,
+    imageDark: "/images/case-studies/datacamp-cover-dark.webp",
+    imageLight: "/images/case-studies/datacamp-cover-light.webp",
+    metrics: [
+      { value: "50%", label: "Conversion lift" },
+      { value: "65%", label: "Bounce rate eliminated" },
+      { value: "2 weeks", label: "Time to ship" },
+    ],
+    sections: [
+      {
+        id: "hook",
+        title: "The Hook",
+        content:
+          "Two-thirds of users never saw our paywall. They bounced on a screen designed to prepare them for it. The screen was doing its job, just not the job we needed. So I proposed deleting it entirely.",
+      },
+      {
+        id: "puzzle",
+        title: "The Puzzle",
+        content:
+          "DataCamp handed me an open brief: find paywall opportunities on mobile. No hypothesis, no target metric, just go look. So I mapped every path a user could take after completing their first chapter.\n\nThe end-of-chapter screen offered three options: Start Next Chapter, Practice, or Home. 70% tapped Start Next Chapter. 20% tapped Practice. 6% tapped Home and never saw any conversion flow.\n\nThat 70% was our main funnel. But tapping Start Next Chapter did not show the paywall. It showed a pre-paywall screen first: a generic title, a description, and a button to continue. Of everyone who landed on this screen, 30% tapped Close and never saw the real paywall. 35% tapped Home and left. Only 32% tapped Get Unlimited Access and actually reached the paywall.\n\nThe math was brutal: 65% of users bounced at the pre-paywall before ever seeing prices.",
+        callout: {
+          label: "Data Insight",
+          content:
+            "65% of users bounced at the pre-paywall. Only 32% ever reached the real paywall.",
+          variant: "insight",
+        },
+      },
+      {
+        id: "decision",
+        title: "The Decision",
+        content:
+          "My first instinct was to personalize the pre-paywall. The screen was generic: a title, a description, a button. No context about what the user had just learned or what they would unlock. Then I stopped and asked a different question: Why have a pre-paywall at all? If we could personalize the content, why not personalize the actual paywall directly? The pre-paywall was an extra step we had invented. Users who reached the paywall converted fine. The problem was the friction getting there.\n\nI proposed killing the screen entirely. Paywall changes are sensitive territory. Touch the wrong thing and you risk revenue. But the data was too clear to ignore, and PM and growth leads aligned once they saw the funnel breakdown.",
+        pullQuote:
+          "The best way to fix a friction point is often to delete it.",
+      },
+      {
+        id: "approach",
+        title: "The Approach",
+        content:
+          "The solution had two parts, both shipped in a single sprint. First, plug the leak: I removed the Home button from the post-chapter screen. That 6% of users who tapped Home and vanished now had to choose between continuing their learning or practicing. Both paths eventually reached the paywall.\n\nSecond, eliminate the bottleneck: I removed the pre-paywall screen entirely. Users who tapped Start Next Chapter now went straight to the paywall. No intermediary. No warming up. Just a direct path to the decision point. I kept the Practice option because practice is core to DataCamp's mobile value proposition. Removing it would have damaged the product experience for a marginal conversion gain.",
+        imageDark: "/images/case-studies/datacamp-solution-dark.webp",
+        imageLight: "/images/case-studies/datacamp-solution-light.webp",
+      },
+      {
+        id: "result",
+        title: "The Result",
+        content:
+          "We ran an A/B test. The treatment group converted at 7.36% compared to 4.90% for control. A 50% lift in subscription conversions, statistically significant with 95% confidence. One sprint to build. One month to validate and ship permanently. This flow is now the default. Every new paywall test starts here.",
+        callout: {
+          label: "Key Result",
+          content:
+            "4.90% → 7.36% conversion rate. 50% lift. Statistically significant.",
+          variant: "insight",
+        },
+      },
+      {
+        id: "reflection",
+        title: "What I'd Do Differently",
+        content:
+          "This project had the ingredients I thrive on: freedom to explore the data, space to question assumptions, and a fast path from insight to shipped solution. I wish more projects worked this way. Give me a real problem, access to data, and room to move quickly. I love this stuff.\n\nIf I had more time, I would track long-term retention alongside conversion to ensure we did not just pull forward purchases that would have happened anyway. And I would follow up by redesigning the paywall itself. It is crowded, generic, and does not reflect what the user just learned or what they are about to unlock. There is more conversion lift sitting there.",
+        callout: {
+          label: "Key Lesson",
+          content:
+            "Data tells you what is happening. Asking why does this exist tells you what to do about it.",
+          variant: "lesson",
+        },
+      },
+    ],
+  },
+  {
     slug: "invoo-es",
     title: "invoo.es: From Market Gap to Production Code",
     description:
@@ -68,54 +145,6 @@ export const caseStudies: CaseStudy[] = [
             "Map the regulatory landscape before choosing the stack. That lost month still stings.",
           variant: "lesson",
         },
-      },
-    ],
-  },
-  {
-    slug: "datacamp-paywall",
-    title: "DataCamp Paywall: Killing a Feature to Boost Conversions",
-    description:
-      "I eliminated half of DataCamp's paywall flow and increased paywall views by 50%. Sometimes the best design is removing something.",
-    role: "Product Manager",
-    year: 2025,
-    category: "led",
-    featured: true,
-    sections: [
-      {
-        id: "hook",
-        title: "The Hook",
-        content:
-          "I eliminated half of DataCamp's paywall flow and increased paywall views by 50%. That single decision, removing a screen instead of adding one, drove a significant lift in subscription conversions across millions of users.",
-      },
-      {
-        id: "puzzle",
-        title: "The Puzzle",
-        content:
-          "Half of our users were vanishing before they ever saw the real paywall. The culprit: a pre-paywall screen that showed learning insights before presenting subscription options. In theory, it built value. In reality, it created friction. Users landed there, saw content they could not access, and bounced. We were losing potential subscribers at the exact moment we should have been converting them.",
-      },
-      {
-        id: "decision",
-        title: "The Decision",
-        content:
-          "I proposed something counterintuitive: delete the pre-paywall entirely. The data showed users who reached the actual paywall converted well. The problem was getting them there. Stakeholders worried we would lose the value demonstration moment. I argued that momentum mattered more than persuasion at this stage. Users already knew what they wanted. We just needed to stop blocking the path.",
-      },
-      {
-        id: "changes",
-        title: "What Changed",
-        content:
-          "Removed the pre-paywall insights screen from the conversion flow. Streamlined the user journey from free content to subscription prompt. Ran A/B tests across user segments to validate the hypothesis. Collaborated with engineering to ensure clean analytics tracking. Documented the decision framework for future paywall experiments.",
-      },
-      {
-        id: "result",
-        title: "The Result",
-        content:
-          "Paywall views jumped 50% immediately after launch. Subscription conversions increased [X]%, adding [Y] subscribers per month. The simplified flow became the new baseline for all monetization experiments.",
-      },
-      {
-        id: "reflection",
-        title: "What I'd Do Differently",
-        content:
-          "I would push for a faster testing cycle. The A/B test ran longer than necessary because we wanted statistical confidence on secondary metrics. The primary signal was clear within two weeks. I now advocate for staged rollouts with kill switches over extended test periods.",
       },
     ],
   },

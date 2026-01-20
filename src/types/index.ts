@@ -29,6 +29,9 @@ export interface CaseStudySection {
   content: string;
   pullQuote?: string;
   callout?: CaseStudyCallout;
+  imageDark?: string;
+  imageLight?: string;
+  imageCaption?: string;
 }
 
 export interface CaseStudyMetric {
