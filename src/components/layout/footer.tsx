@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  // Hide footer on homepage (Values section has integrated footer)
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <footer className="border-t">
       <div className="container mx-auto max-w-5xl px-4 py-8">

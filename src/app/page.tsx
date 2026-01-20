@@ -11,8 +11,10 @@ export default function Home() {
       {/* Content sections scroll over the hero */}
       <div className="relative z-20 bg-background">
         <FeaturedCaseStudies />
-        <Values />
       </div>
+
+      {/* Values + Footer section */}
+      <Values />
     </>
   );
 }

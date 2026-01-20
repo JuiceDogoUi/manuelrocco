@@ -1325,3 +1325,53 @@
   }
 }
 
+/* Scroll-triggered footer zoom-in effect */
+@keyframes footer-zoom-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .parallax-footer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    transform-origin: center bottom;
+    will-change: transform, opacity;
+    animation: footer-zoom-in linear forwards;
+    animation-timeline: scroll();
+    animation-range: calc(100% - 800px) 100%;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-footer-container {
+      animation-range: calc(100% - 600px) 100%;
+    }
+  }
+}
+
+/* Fallback for unsupported browsers */
+@supports not (animation-timeline: scroll()) {
+  .parallax-footer-container {
+    position: relative;
+  }
+}
+
+/* Reduced motion: disable footer parallax */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-footer-container {
+    position: relative !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

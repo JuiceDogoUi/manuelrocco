@@ -35,9 +35,74 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const ogImage = caseStudy.imageDark || caseStudy.imageLight || caseStudy.image;
+
   return {
     title: caseStudy.title,
     description: caseStudy.description,
+    alternates: {
+      canonical: `/case-studies/${slug}`,
+    },
+    openGraph: {
+      title: caseStudy.title,
+      description: caseStudy.description,
+      type: "article",
+      publishedTime: `${caseStudy.year}-01-01`,
+      authors: ["Manuel Rocco"],
+      images: ogImage ? [{ url: ogImage, width: 1200, height: 630 }] : [],
+    },
+  };
+}
+
+function generateArticleSchema(caseStudy: NonNullable<ReturnType<typeof getCaseStudyBySlug>>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://manuelrocco.com/case-studies/${caseStudy.slug}`,
+    headline: caseStudy.title,
+    description: caseStudy.description,
+    author: {
+      "@id": "https://manuelrocco.com/#person",
+    },
+    publisher: {
+      "@id": "https://manuelrocco.com/#person",
+    },
+    datePublished: `${caseStudy.year}-01-01`,
+    dateModified: `${caseStudy.year}-01-01`,
+    image: caseStudy.imageDark || caseStudy.imageLight || caseStudy.image,
+    keywords: [
+      "product design",
+      "ux case study",
+      caseStudy.category,
+      caseStudy.role,
+    ],
+  };
+}
+
+function generateBreadcrumbSchema(caseStudy: NonNullable<ReturnType<typeof getCaseStudyBySlug>>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://manuelrocco.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Case Studies",
+        item: "https://manuelrocco.com/case-studies",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: caseStudy.title,
+        item: `https://manuelrocco.com/case-studies/${caseStudy.slug}`,
+      },
+    ],
   };
 }
 
@@ -120,8 +185,23 @@ export default async function CaseStudyPage({ params }: Props) {
   }
 
   const otherCaseStudies = getOtherCaseStudies(slug);
+  const articleSchema = generateArticleSchema(caseStudy);
+  const breadcrumbSchema = generateBreadcrumbSchema(caseStudy);
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
     <div className="container mx-auto max-w-5xl px-4 py-24">
       {/* Hero */}
       <header className="mb-20">
@@ -213,5 +293,6 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* More Case Studies */}
       <MoreCaseStudies caseStudies={otherCaseStudies} />
     </div>
+    </>
   );
 }

@@ -1,11 +1,12 @@
 export const siteConfig = {
   name: "Manuel Rocco",
-  description: "Personal portfolio showcasing my work and projects",
+  description:
+    "Lead Product Designer & Front-End Developer specializing in React, TypeScript, and data-driven UX. Currently at DataCamp. Co-founder of invoo.es. Based in Spain.",
   url: "https://manuelrocco.com",
-  ogImage: "/og-image.png",
+  ogImage: "/images/aboutme.webp",
   links: {
-    linkedin: "https://linkedin.com/in/manuelrocco",
-    email: "mailto:hello@manuelrocco.com",
+    linkedin: "https://www.linkedin.com/in/manuel-rocco/",
+    email: "mailto:manucrk@gmail.com",
   },
   nav: [
     { name: "Case Studies", href: "/case-studies" },

@@ -149,54 +149,6 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "sei-novus-strategy",
-    title: "SEI Novus: From Service Sales to Product-Led Growth",
-    description:
-      "I led the strategic shift from selling consulting services to selling product subscriptions. A complete business model transformation.",
-    role: "Lead Product Designer",
-    year: 2023,
-    category: "led",
-    featured: false,
-    sections: [
-      {
-        id: "hook",
-        title: "The Hook",
-        content:
-          "I led the transformation of a Swiss fintech from service sales to product-led growth. The company went from selling consulting hours to selling product subscriptions, changing how every team operated.",
-      },
-      {
-        id: "puzzle",
-        title: "The Puzzle",
-        content:
-          "SEI Novus sold financial analytics as a service: consultants configured dashboards, trained users, and billed by the hour. Revenue was unpredictable, margins were thin, and growth meant hiring more consultants. The product existed, but it required hand-holding to deliver value. Leadership wanted recurring revenue and scalable growth. That meant the product had to sell itself.",
-      },
-      {
-        id: "decision",
-        title: "The Decision",
-        content:
-          "I proposed we stop treating the product as a service delivery tool and redesign it for self-service adoption. This meant killing features that only made sense with consultant support and building onboarding flows that replaced human handholding. The trade-off: short-term revenue risk from existing service contracts while we rebuilt for the new model.",
-      },
-      {
-        id: "changes",
-        title: "What Changed",
-        content:
-          "Mapped the entire customer journey to identify where consultants intervened most. Redesigned onboarding to replace [X] hours of consultant setup with self-service wizards. Built in-product guidance that answered the top [Y] support questions automatically. Created usage analytics dashboards so customers could see their own ROI. Aligned sales, success, and product teams around product-qualified leads instead of service proposals.",
-      },
-      {
-        id: "result",
-        title: "The Result",
-        content:
-          "The company shifted [X]% of new revenue to product subscriptions within [Y] months. Customer onboarding time dropped from [Z] consultant hours to self-service. The model proved scalable: revenue grew without proportional headcount increases.",
-      },
-      {
-        id: "reflection",
-        title: "What I'd Do Differently",
-        content:
-          "I would run pricing experiments earlier. We focused on product experience first and pricing second. Testing willingness to pay for self-service versus service tiers in parallel would have accelerated the transition.",
-      },
-    ],
-  },
-  {
     slug: "datacamp-mobile-home",
     title: "DataCamp Mobile Home: From Content Overload to 7% Course Lift",
     description:
@@ -204,7 +156,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Product Designer",
     year: 2025,
     category: "designed",
-    featured: false,
+    featured: true,
     imageDark: "/images/case-studies/datacamp-home-cover-dark.webp",
     imageLight: "/images/case-studies/datacamp-home-cover-light.webp",
     metrics: [
@@ -263,7 +215,7 @@ export const caseStudies: CaseStudy[] = [
         id: "reflection",
         title: "What I'd Do Differently",
         content:
-          "I would add a practice content coverage check before shipping. The design assumed practice would work for every course. It did not. A simple availability check in the modal logic would have prevented the XP dip and the stakeholder concern. The fix was easy once we found it, but I should have anticipated the edge case.\n\nMore broadly, this project reinforced that design bets without research can work when you have built the observational intuition first. I had watched users struggle for months before proposing this. The bet was not blind. It was informed by pattern recognition that formal studies sometimes miss.",
+          "I would add a practice content coverage check before shipping. The design assumed practice would work for every course. It did not. A simple availability check in the modal logic would have prevented the XP dip and the stakeholder concern. The fix was easy once we found it, but I should have anticipated the edge case.",
       },
     ],
   },
