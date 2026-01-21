@@ -1,0 +1,331 @@
+/* CV PDF Stylesheet - Two Column Professional Layout */
+
+:root {
+  --color-text: #1a1a1a;
+  --color-text-muted: #525252;
+  --color-text-light: #737373;
+  --color-accent: #2563eb;
+  --color-border: #e5e5e5;
+  --color-bg-sidebar: #f8fafc;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --sidebar-width: 200px;
+  --main-gap: 32px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  line-height: 1.45;
+  background: white;
+}
+
+/* ================================
+   TWO-COLUMN LAYOUT
+   ================================ */
+.cv-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20mm;
+  min-width: 0;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--color-bg-sidebar);
+  padding: 20mm 16px 20mm 20px;
+  border-left: 1px solid var(--color-border);
+}
+
+/* ================================
+   HEADER (Name, Title, Summary)
+   ================================ */
+.cv-header {
+  margin-bottom: 20px;
+}
+
+.cv-header .name {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 2px;
+  color: var(--color-text);
+}
+
+.cv-header .title {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.cv-header .summary {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ================================
+   MAIN CONTENT TYPOGRAPHY
+   ================================ */
+.main-body h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid var(--color-border);
+}
+
+.main-body h2:first-child {
+  margin-top: 0;
+}
+
+/* Job Title */
+.main-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.main-body h3:first-child {
+  margin-top: 0;
+}
+
+/* Company & Date line */
+.main-body h3 + p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+/* Date styling when in h3 */
+.date {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+.main-body p {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+/* Lists in main content */
+.main-body ul {
+  margin-left: 16px;
+  margin-bottom: 12px;
+}
+
+.main-body li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.main-body li::marker {
+  color: var(--color-text-muted);
+}
+
+/* ================================
+   SIDEBAR SECTIONS
+   ================================ */
+.sidebar-section {
+  margin-bottom: 20px;
+}
+
+.sidebar-section:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar h2 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid var(--color-accent);
+}
+
+.sidebar h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.sidebar h3:first-child {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+}
+
+.sidebar li {
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+  color: var(--color-text);
+  padding-left: 10px;
+  position: relative;
+}
+
+.sidebar li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-light);
+}
+
+/* Contact list */
+.contact-list li {
+  margin-bottom: 4px;
+}
+
+/* Skill groups */
+.skill-group {
+  margin-bottom: 12px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Education items */
+.education-item {
+  margin-bottom: 10px;
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
+.education-item strong {
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.education-item p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.education-item .year {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+/* ================================
+   LINKS
+   ================================ */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+/* ================================
+   EMPHASIS & HIGHLIGHTS
+   ================================ */
+strong {
+  font-weight: 600;
+}
+
+/* Metrics highlight: **50%** or ***50%*** */
+strong em,
+em strong {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+/* ================================
+   PAGE BREAK HANDLING
+   ================================ */
+.cv-header {
+  page-break-after: avoid;
+}
+
+.main-body h2 {
+  page-break-after: avoid;
+}
+
+.main-body h3 {
+  page-break-after: avoid;
+}
+
+.main-body h3 + p {
+  page-break-before: avoid;
+}
+
+.sidebar-section {
+  page-break-inside: avoid;
+}
+
+/* ================================
+   PRINT OPTIMIZATIONS
+   ================================ */
+@media print {
+  html {
+    font-size: 9.5pt;
+  }
+
+  .cv-container {
+    min-height: auto;
+  }
+
+  a {
+    color: var(--color-text);
+  }
+}
+
+/* ================================
+   COMPACT MODE (optional class)
+   ================================ */
+.compact .main-body h2 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.compact .main-body h3 {
+  margin-top: 10px;
+}
+
+.compact .main-body li {
+  margin-bottom: 3px;
+}
+
+.compact .sidebar-section {
+  margin-bottom: 14px;
+}

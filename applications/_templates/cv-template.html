@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{name}} - CV</title>
+  <style>{{styles}}</style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- Main Content (Left Column) -->
+    <main class="main-content">
+      <header class="cv-header">
+        <h1 class="name">{{name}}</h1>
+        <p class="title">{{title}}</p>
+        {{summary}}
+      </header>
+
+      <div class="main-body">
+        {{content}}
+      </div>
+    </main>
+
+    <!-- Sidebar (Right Column) -->
+    <aside class="sidebar">
+      {{sidebar}}
+    </aside>
+  </div>
+</body>
+</html>
